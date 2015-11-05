@@ -1,11 +1,11 @@
 {
   "name": "generator-webpack-redux-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Yeoman generator for React/Redux projects.",
   "license": "MIT",
   "main": "generators/app/index.js",
   "files": [
-    "generators/app"
+    "generators"
   ],
   "repository": "https://github.com/kypertech/generator-react-redux",
   "author": {
@@ -16,9 +16,6 @@
   "scripts": {
     "test": "mocha"
   },
-  "files": [
-    "generators"
-  ],
   "keywords": [
     "yeoman-generator",
     "kyper",
@@ -28,8 +25,9 @@
     "react-redux"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.21.1",
     "chalk": "^1.0.0",
+    "lodash": "^3.10.1",
+    "yeoman-generator": "^0.21.1",
     "yosay": "^1.0.2"
   },
   "devDependencies": {

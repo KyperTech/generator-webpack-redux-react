@@ -1,0 +1,49 @@
+@import '../../components/variables';
+a {
+  text-decoration:none;
+}
+.navbar {
+  background-color: $navbar;
+  width:100%;
+  padding:10px;
+  font-size:1.5em;
+  line-height: 1.3em;
+  /* Flexbox */
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+}
+.brand {
+  font-size:1em;
+}
+.brand :hover {
+  color: $secondary;
+}
+.spacer {
+  flex:1;
+}
+//Button group
+.buttons {
+  display:inline;
+  padding-right:10px;
+}
+//Button
+.buttons a {
+  margin-right:10px;
+  margin-left:10px;
+  text-decoration:none;
+}
+//Link text inside of buttons
+.buttons a {
+}
+
+.buttons a :hover {
+  // background-color:white;
+}
+.buttons a:hover {
+  // background-color:white;
+  color: $secondary;
+  text-decoration: underline;
+}

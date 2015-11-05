@@ -1,4 +1,5 @@
 node_modules
+npm-debug.log
+stats.json
 .DS_Store
 **/.DS_Store
-**/npm-debug.log
