@@ -32,9 +32,9 @@ module.exports = yeoman.generators.Base.extend({
   },
   writing: function () {
     if(this.props.addAction){
-      this.template('_action.js', 'actions/' + this.name.toLowerCase() + '.js', this.templateContext);
+      this.template('_action.js', 'app/actions/' + this.name.toLowerCase() + '.js', this.templateContext);
     }
-    this.template('_main.js', 'containers/'+ this.name + '/' + this.name + '.js', this.templateContext);
-    this.template('_main.scss', 'containers/'+ this.name + '/' + this.name + '.scss',this.templateContext);
+    this.template('_main.js', 'app/containers/'+ this.name + '/' + this.name + '.js', this.templateContext);
+    this.template('_main.scss', 'app/containers/'+ this.name + '/' + this.name + '.scss',this.templateContext);
   }
 });

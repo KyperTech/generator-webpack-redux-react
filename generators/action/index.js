@@ -15,6 +15,6 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: function () {
-    this.template('_main.js', 'actions/' + this.name.toLowerCase() + '.js', this.templateContext);
+    this.template('_main.js', 'app/actions/' + this.name.toLowerCase() + '.js', this.templateContext);
   }
 });

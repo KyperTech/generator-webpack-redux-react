@@ -30,10 +30,10 @@ module.exports = yeoman.generators.Base.extend({
   },
   writing: function () {
     if(this.props.addStyle){
-      this.template('_style.js', 'components/'+ this.name + '/' + this.name + '.js', this.templateContext);
-      this.template('_main.scss', 'components/'+ this.name + '/' + this.name + '.scss', this.templateContext);
+      this.template('_style.js', 'app/components/'+ this.name + '/' + this.name + '.js', this.templateContext);
+      this.template('_main.scss', 'app/components/'+ this.name + '/' + this.name + '.scss', this.templateContext);
     } else {
-      this.template('_noStyle.js', 'components/'+ this.name + '/' + this.name + '.js', this.templateContext);
+      this.template('_noStyle.js', 'app/components/'+ this.name + '/' + this.name + '.js', this.templateContext);
     }
   }
 });

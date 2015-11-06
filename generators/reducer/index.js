@@ -40,13 +40,13 @@ module.exports = yeoman.generators.Base.extend({
 
     switch(this.props.stateType){
       case 'array':
-        this.template('_array.js',  'reducers/' + this.name.toLowerCase() + '.js', this.templateContext);
+        this.template('_array.js',  'app/reducers/' + this.name.toLowerCase() + '.js', this.templateContext);
         break;
       case 'object':
-        this.template('_object.js',  'reducers/' + this.name.toLowerCase() + '.js', this.templateContext);
+        this.template('_object.js',  'app/reducers/' + this.name.toLowerCase() + '.js', this.templateContext);
         break;
       default :
-        this.template('_array.js',  'reducers/' + this.name.toLowerCase() + '.js', this.templateContext);
+        this.template('_array.js',  'app/reducers/' + this.name.toLowerCase() + '.js', this.templateContext);
     }
   }
 });
