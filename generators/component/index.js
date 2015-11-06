@@ -10,7 +10,7 @@ module.exports = yeoman.generators.Base.extend({
       desc: 'The subgenerator name'
     });
 
-    this.log('You called the Component subgenerator with the argument ' + this.name + '.');
+    // this.log('You called the Component subgenerator with the argument ' + this.name + '.');
   },
   prompting: function () {
     var done = this.async();

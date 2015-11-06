@@ -1,5 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator');
+var _ = require('lodash');
+var chalk = require('chalk');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -8,14 +10,11 @@ module.exports = yeoman.generators.Base.extend({
       type: String,
       desc: 'The subgenerator name'
     });
-
-    this.log('You called the WebpackReduxReact subgenerator with the argument ' + this.name + '.');
+    this.capsName = this.name.toUpperCase();
+    this.camelName = _.capitalize(this.name);
   },
 
   writing: function () {
-    this.fs.copy(
-      this.templatePath('somefile.js'),
-      this.destinationPath('somefile.js')
-    );
+    this.template('_main.js', 'actions/' + this.name.toLowerCase() + '.js', this.templateContext);
   }
 });

@@ -12,7 +12,7 @@ module.exports = yeoman.generators.Base.extend({
     });
     this.capsName = _.capitalize(this.name);
     this.camelName = this.name.toLowerCase().charAt(0).toUpperCase().slice(1); //Capitalize first letter only
-    // this.log('You called the Component subgenerator with the argument ' + this.name + '.');
+    // this.log('You called the Container subgenerator with the argument ' + this.name + '.');
   },
   prompting: function () {
     var done = this.async();
