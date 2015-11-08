@@ -49,7 +49,7 @@ module.exports = yeoman.generators.Base.extend({
         {src:'_package.json', dest: 'package.json'},
         {src:'webpack-dev.config.js'},
         {src:'webpack.config.js'},
-        {src:'.gitignore'}
+        {src:'gitignore'}
       ]
       this.copyFiles(filesArray);
     }
