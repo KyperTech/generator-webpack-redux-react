@@ -57,8 +57,8 @@ export function signup(signupData) {
     dispatch(attemptSignup(signupData));
     //Call to API or use middleware here
     let fakeProfileData = {
-      username: loginData.username || 'Guest',
-      email: loginData.email || 'test@test.com',
+      username: signupData.username || 'Guest',
+      email: signupData.email || 'test@test.com',
     };
     receiveSignup(fakeProfileData);
   }
