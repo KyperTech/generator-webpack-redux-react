@@ -18,7 +18,9 @@ class Navbar extends Component {
     return (
       <div className="navbar">
         <div className="brand">
-          <span><Link to="/">Starter</Link></span>
+          <span>
+            <Link to="/">Starter</Link>
+          </span>
         </div>
         <div className="spacer"></div>
           <AccountManager currentAccount={ this.props.account } />
@@ -28,13 +30,12 @@ class Navbar extends Component {
 }
 Navbar.propTypes = {
   account: PropTypes.object
-}
+};
 //Place state of redux store into props of component
 function mapStateToProps(state) {
-  console.log('state', state.auth);
-let account = state.auth ? state.auth.account : null;
+let profile = state.profile ? state.profile.profile : null;
   return {
-    account: account,
+    profile: profile,
     router: state.router
   };
 }

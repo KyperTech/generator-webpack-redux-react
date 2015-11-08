@@ -1,29 +1,19 @@
 import React, { Component } from 'react';
 import { Route, IndexRoute } from 'react-router'
 import { ReduxRouter } from 'redux-router';
-// import Main from './components/Main';
-// import Login from './components/Login';
-// import {
-//     App,
-//     Home,
-//     About,
-//     Login,
-//     RequireLogin,
-//     LoginSuccess,
-//     NotFound,
-//   } from 'containers';
-import App from './containers/App/App.js';
-import Home from './containers/Home/Home.js';
-import About from './containers/About/About.js';
-import Profile from './containers/Profile/Profile.js';
-import Login from './containers/Login/Login.js';
-import Signup from './containers/Signup/Signup.js';
-import RequireLogin from './containers/RequireLogin/RequireLogin.js';
-import LoginSuccess from './containers/LoginSuccess/LoginSuccess.js';
-import NotFound from './containers/NotFound/NotFound.js';
 
+import App from './containers/App/App';
+import Home from './containers/Home/Home';
+import About from './containers/About/About';
+import Profile from './containers/Profile/Profile';
+import Login from './containers/Login/Login';
+import Signup from './containers/Signup/Signup';
+import RequireLogin from './containers/RequireLogin/RequireLogin';
+import LoginSuccess from './containers/LoginSuccess/LoginSuccess';
+import NotFound from './containers/NotFound/NotFound';
 export default class AppRouter extends Component {
   render() {
+    //Each Route below corresponds to a page
     return (
       <ReduxRouter>
         <Route path="/" component={ App }>

@@ -10,8 +10,8 @@ module.exports = yeoman.generators.Base.extend({
       type: String,
       desc: 'The subgenerator name'
     });
-    this.capsName = _.capitalize(this.name);
-    this.camelName = this.name.toLowerCase().charAt(0).toUpperCase().slice(1); //Capitalize first letter only
+    this.capsName = this.name.toUpperCase();
+    this.camelName = _.capitalize(this.name); //Capitalize first letter only
     // this.log('You called the Container subgenerator with the argument ' + this.name + '.');
   },
   prompting: function () {
@@ -31,6 +31,7 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
   writing: function () {
+    //TODO: Call action subgenerator instead
     if(this.props.addAction){
       this.template('_action.js', 'app/actions/' + this.name.toLowerCase() + '.js', this.templateContext);
     }

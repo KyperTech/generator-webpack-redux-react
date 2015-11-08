@@ -10,7 +10,6 @@ module.exports = yeoman.generators.Base.extend({
       type: String,
       desc: 'The subgenerator name'
     });
-    this.capsName = this.name.toUpperCase();
     this.camelName = _.capitalize(this.name);
   },
 

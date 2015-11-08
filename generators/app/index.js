@@ -17,7 +17,7 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the exceptional ' + chalk.red('Webpack Redux React') + ' generator!'
+      chalk.red('Webpack Redux React')
     ));
 
     var prompts = [{
@@ -49,7 +49,8 @@ module.exports = yeoman.generators.Base.extend({
         {src:'_package.json', dest: 'package.json'},
         {src:'webpack-dev.config.js'},
         {src:'webpack.config.js'},
-        {src:'gitignore'}
+        {src:'gitignore', dest: '.gitignore'},
+        {src:'eslintrc', dest: '.eslintrc'}
       ]
       this.copyFiles(filesArray);
     }

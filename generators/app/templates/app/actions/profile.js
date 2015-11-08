@@ -5,22 +5,22 @@ export const SIGNUP_RESPONSE = 'SIGNUP_RESPONSE';
 export const LOGOUT_ATTEMPT = 'LOGOUT_ATTEMPT';
 export const LOGOUT_RESPONSE = 'LOGOUT_RESPONSE';
 export const AUTH_ERR = 'AUTH_ERR';
-
-import Matter from 'kyper-matter';
-let matter = new Matter('exampleApp');
-
-// Fetches a single user from Github API unless it is cached.
+/** WARNING
+ * This setup is for demo purposes only and does not actually authenticate
+ * Reference the following for an example
+ * https://github.com/rackt/redux/tree/master/examples/real-world
+ */
+// Fetches a single user from API unless it is cached.
 // Relies on Redux Thunk middleware.
 export function loadAccount(login, requiredFields = []) {
   return (dispatch, getState) => {
-    const user = getState().account;
+    const user = getState().profile;
     if (user) {
       return null;
     }
   };
 }
 export function attemptLogin(loginData) {
-  console.log('attempt login action', loginData);
  return {
    type: LOGIN_ATTEMPT,
    payload: loginData
@@ -28,24 +28,20 @@ export function attemptLogin(loginData) {
 }
 //Requires react-thunk
 export function login(loginData) {
-  console.log('login action called', loginData);
   return (dispatch, getState) => {
-    console.log('distpatch function running.');
     dispatch(attemptLogin(loginData));
-    console.log('distpatch function running.');
-    return matter.login(loginData)
-    .then(loginRes => {
-      console.log('signup response');
-      return dispatch(receiveLogin(loginData, loginRes));
-    });
+    //Call to API or use middleware here
+    let fakeProfileData = {
+      username: loginData.username || 'Guest',
+      email: loginData.email || 'test@test.com',
+    };
+    receiveLogin(fakeProfileData);
   }
 }
-export function receiveLogin(loginData, res) {
-  console.log('receive login called', loginData, res);
+export function receiveLogin(profile) {
  return {
    type: LOGIN_RESPONSE,
-   loginData: loginData,
-   account: res,
+   profile: profile,
    receivedAt: Date.now()
  };
 }
@@ -58,20 +54,19 @@ export function attemptSignup(signupData) {
 }
 export function signup(signupData) {
   return dispatch => {
-    distpatch(attemptSignup(signupData));
-    return matter.signup(action.payload)
-    .then((loginRes) => {
-      dispatch(receiveSignup(signupData, loginRes));
-    }, (err) => {
-      return {type: AUTH_ERR, payload: err};
-    });
+    dispatch(attemptSignup(signupData));
+    //Call to API or use middleware here
+    let fakeProfileData = {
+      username: loginData.username || 'Guest',
+      email: loginData.email || 'test@test.com',
+    };
+    receiveSignup(fakeProfileData);
   }
 }
-export function receiveSignup(signupData, res) {
+export function receiveSignup(profile) {
  return {
    type: SIGNUP_RESPONSE,
-   signupData,
-   account: res,
+   profile: profile,
    receivedAt: Date.now()
  };
 }
@@ -79,13 +74,8 @@ export function receiveSignup(signupData, res) {
 export function logout() {
   return dispatch => {
     dispatch(attemptLogout());
-    return matter.logout()
-    .then((logoutRes) => {
-      console.log('logout successful:', logoutRes);
-      dispatch(receiveLogout(logoutRes));
-    }, (err) => {
-      return {type: AUTH_ERR, payload: err};
-    });
+    //Call to API or use middleware here
+    dispatch(receiveLogout());
   }
 }
 export function attemptLogout() {
@@ -96,7 +86,7 @@ export function attemptLogout() {
 export function receiveLogout(res) {
  return {
    type: LOGOUT_RESPONSE,
-   account: null,
+   profile: null,
    receivedAt: Date.now()
  };
 }
