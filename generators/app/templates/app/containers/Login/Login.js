@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { Link } from 'react-router';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import * as Actions from '../../actions/auth';
+import * as Actions from '../../actions/profile';
 import './Login.scss';
 
  class Login extends Component {
@@ -16,19 +16,17 @@ import './Login.scss';
   }
   render() {
     return (
-      <div className="login-page">
+      <div className="Login">
         <h2>Login</h2>
         <LoginForm onLoginClick={ loginData => this.handleLoginClick(loginData) }/>
       </div>
     )
   }
 }
-Login.propTypes = {
-}
 //Place state of redux store into props of component
 function mapStateToProps(state) {
   return {
-    account: state.account,
+    profile: state.profile,
     router: state.router
   };
 }

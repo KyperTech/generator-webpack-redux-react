@@ -1,8 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
 import { Link } from 'react-router';
-import * as Actions from '../../actions';
 import './LoginForm.scss';
 
  class LoginForm extends Component {
@@ -13,6 +10,9 @@ import './LoginForm.scss';
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.state = {username: '', password: ''};
   }
+  static propType = {
+    onLoginClick: PropTypes.func.isRequired
+  };
   /**
    * @function handleLogin
    * @description Fire onLoginClick function provided to component when login is clicked
@@ -36,26 +36,22 @@ import './LoginForm.scss';
   }
   render() {
     return (
-      <div className="login-page">
-        <form className="inputs" onSubmit={this.handleLogin}>
-          <div className="input-wrapper">
-            <span className="input-label">Username/Email</span>
-            <input onChange={this.handleUsernameChange}/>
+        <form className="LoginForm" onSubmit={this.handleLogin}>
+          <div className="LoginForm-Group">
+            <span className="LoginForm-Label">Username/Email</span>
+            <input className="LoginForm-Input" onChange={this.handleUsernameChange}/>
           </div>
-          <div className="input-wrapper">
-            <span className="input-label">Password</span>
-            <input onChange={this.handlePasswordChange} type='password' />
+          <div className="LoginForm-Group">
+            <span className="LoginForm-Label">Password</span>
+            <input className="LoginForm-Input" onChange={this.handlePasswordChange} type='password' />
           </div>
-          <div className="input-wrapper">
-            <button className="" type="submit">Login</button>
-            <button className="" type="reset">Cancel</button>
+          <div className="LoginForm-Buttons">
+            <button className="LoginForm-Login" type="submit">Login</button>
+            <button className="LoginForm-Cancel" type="reset">Cancel</button>
           </div>
        </form>
-      </div>
     )
   }
 }
-LoginForm.propTypes = {
-  onLoginClick: PropTypes.func.isRequired
-};
+
 export default LoginForm;

@@ -24,7 +24,7 @@ export default function profile(state = {
   case LOGOUT_ATTEMPT:
     return merge({}, state, {isFetching: true});
   case LOGOUT_RESPONSE:
-    return merge({}, state, {isFetching: false, profile: null});
+    return merge({}, {isFetching: false});
   case AUTH_ERR:
     return merge({}, state, {isFetching: false});
   default:
