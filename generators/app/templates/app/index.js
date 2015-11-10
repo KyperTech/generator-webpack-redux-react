@@ -4,11 +4,9 @@ import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import AppRouter from './routes';
-import Matter from 'kyper-matter';
-let matter = new Matter('exampleApp');
+
 const initialState = {
-  cars: [{name:'hola', hp: 210}],
-  auth: {account: matter.currentUser}
+  cars: [{name:'tesla', hp: 210}]
 }
 
 const store = configureStore(initialState);

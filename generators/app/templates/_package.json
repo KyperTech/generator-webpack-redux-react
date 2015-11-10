@@ -10,7 +10,9 @@
     "redux",
     "react",
     "react-router",
-    "kyper"
+    "kyper",
+    "matter",
+    "tessellate"
   ],
   "license": "MIT",
   "dependencies": {

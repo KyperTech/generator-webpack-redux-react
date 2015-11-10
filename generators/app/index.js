@@ -17,7 +17,7 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      chalk.red('Webpack Redux React')
+      chalk.red('Webpack Redux React Generator')
     ));
 
     var prompts = [{
@@ -35,24 +35,25 @@ module.exports = yeoman.generators.Base.extend({
   },
   writing: {
     app: function () {
-      var filesArray = [
+      var appFilesArray = [
         {src:'_index.html', dest:'index.html'},
         {src:'app/**', dest: 'app'},
         {src:'assets/**', dest: 'assets'},
         {src:'bin/**', dest: 'bin'},
         {src:'lib/**', dest: 'lib'},
       ];
-      this.copyFiles(filesArray);
+      this.copyFiles(appFilesArray);
     },
     projectfiles: function () {
-      var filesArray = [
+      var projectFilesArray = [
         {src:'_package.json', dest: 'package.json'},
         {src:'webpack-dev.config.js'},
         {src:'webpack.config.js'},
         {src:'gitignore', dest: '.gitignore'},
-        {src:'eslintrc', dest: '.eslintrc'}
+        {src:'eslintrc', dest: '.eslintrc'},
+        {src:'babelrc', dest: '.babelrc'}
       ]
-      this.copyFiles(filesArray);
+      this.copyFiles(projectFilesArray);
     }
   },
   install: function () {
