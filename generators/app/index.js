@@ -22,14 +22,14 @@ module.exports = yeoman.generators.Base.extend({
 
     var prompts = [{
       type: 'confirm',
-      name: 'someOption',
+      name: 'includeMatter',
       message: 'Would you like to include Matter.js for authentication?',
       default: false
     }];
 
     this.prompt(prompts, function (props) {
-      this.props = props;
-      // To access props later use this.props.someOption;
+      this.answers = props;
+      // To access prompt answers later use this.answers.someOption;
       done();
     }.bind(this));
   },
@@ -40,9 +40,16 @@ module.exports = yeoman.generators.Base.extend({
         {src:'app/**', dest: 'app'},
         {src:'assets/**', dest: 'assets'},
         {src:'bin/**', dest: 'bin'},
-        {src:'lib/**', dest: 'lib'},
+        {src:'lib/**', dest: 'lib'}
       ];
       this.copyFiles(appFilesArray);
+      //Add matter specific files
+      if(this.answers.includeMatter){
+        this.copyFiles([
+          {src: '_matter-helper.js', dest: 'app/helpers/matter.js'},
+          {src: '_profile-action.js', dest: 'app/actions/profile.js'}
+        ]);
+      }
     },
     projectfiles: function () {
       var projectFilesArray = [
